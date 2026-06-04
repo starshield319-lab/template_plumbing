@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premier Plumbing Co. — Website Preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0a1628;--navy2:#0d1f3c;--blue:#1a3a6e;
+  --red:#c0392b;--red2:#e74c3c;
+  --gold:#c9a227;--gold2:#f0c040;
+  --white:#f8f6f2;--gray:#e8e4dc;--muted:#7a8499;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Source Sans 3',sans-serif;background:var(--navy);color:var(--white);overflow-x:hidden}
+.proto-banner{background:linear-gradient(90deg,var(--red),var(--gold));padding:0.45rem 1rem;text-align:center;font-family:'Oswald',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#fff}
+.nav-wrap{position:sticky;top:0;z-index:999}
+nav{background:rgba(10,22,40,0.98);border-bottom:2px solid var(--gold);padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:'Oswald',sans-serif;font-size:1.2rem;font-weight:700;color:var(--gold2);letter-spacing:0.05em;line-height:1.1}
+.logo span{display:block;font-size:0.6rem;font-weight:400;color:var(--muted);letter-spacing:0.14em}
+.nav-links{display:flex;gap:0;list-style:none}
+.nav-links a{display:block;padding:0.4rem 0.75rem;font-family:'Oswald',sans-serif;font-size:0.76rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray);text-decoration:none}
+.nav-links a:hover{color:var(--gold2)}
+.desk-cta{background:linear-gradient(135deg,var(--red),var(--red2));color:#fff;padding:0.48rem 1rem;border-radius:3px;font-family:'Oswald',sans-serif;font-size:0.76rem;letter-spacing:0.1em;text-transform:uppercase;border:none;cursor:pointer;font-weight:600}
+.hbtn{display:none;background:none;border:none;cursor:pointer;padding:6px;-webkit-tap-highlight-color:transparent}
+.hbtn span{display:block;width:26px;height:2px;background:var(--white);border-radius:2px;margin:5px 0;transition:transform 0.3s,opacity 0.3s}
+.hbtn.is-open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hbtn.is-open span:nth-child(2){opacity:0}
+.hbtn.is-open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.drawer{background:rgba(8,16,31,0.99);border-bottom:2px solid rgba(201,162,39,0.25);max-height:0;overflow:hidden;transition:max-height 0.35s ease}
+.drawer.is-open{max-height:380px}
+.drawer-inner{padding:0.5rem 1.5rem 1.5rem}
+.drawer-inner a{display:block;padding:0.85rem 0;font-family:'Oswald',sans-serif;font-size:0.95rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray);text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.07)}
+.drawer-phone{text-align:center;margin:1rem 0 0.5rem;font-family:'Oswald',sans-serif;font-size:1.1rem;color:var(--gold2)}
+.drawer-cta{display:block;width:100%;padding:0.9rem;background:linear-gradient(135deg,var(--red),var(--red2));color:#fff;border:none;border-radius:4px;font-family:'Oswald',sans-serif;font-size:0.95rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;cursor:pointer;text-align:center;margin-top:0.5rem}
+.hero{background:linear-gradient(160deg,var(--navy) 0%,var(--blue) 40%,var(--navy2) 75%,#08101f 100%);padding:3rem 1.5rem 2.5rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 65% 40%,rgba(192,57,43,0.12) 0%,transparent 65%);pointer-events:none}
+.hero-inner{position:relative;z-index:2}
+.hero-badge{display:inline-block;background:linear-gradient(90deg,var(--red),var(--red2));color:#fff;font-family:'Oswald',sans-serif;font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;padding:0.28rem 0.75rem;border-radius:2px;margin-bottom:1rem}
+.hero h1{font-family:'Oswald',sans-serif;font-size:clamp(2.2rem,7vw,3.2rem);font-weight:700;line-height:1.05;color:#fff;margin-bottom:0.4rem}
+.hero h1 span{color:var(--gold2)}
+.hero-sub{font-size:clamp(0.88rem,2.5vw,1rem);color:var(--gray);line-height:1.6;margin-bottom:1.5rem;font-weight:300;max-width:500px}
+.hero-phone{font-family:'Oswald',sans-serif;font-size:clamp(1.4rem,5vw,1.9rem);font-weight:600;color:var(--gold2);margin-bottom:0.2rem}
+.hero-license{font-size:0.74rem;color:var(--muted);margin-bottom:1.5rem}
+.hero-btns{display:flex;gap:0.7rem;flex-wrap:wrap;margin-bottom:2rem}
+.btn-p{background:linear-gradient(135deg,var(--red),var(--red2));color:#fff;padding:0.85rem 1.4rem;border:none;border-radius:3px;font-family:'Oswald',sans-serif;font-size:0.88rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;cursor:pointer;flex:1;min-width:120px}
+.btn-o{background:transparent;color:var(--gold2);padding:0.85rem 1.4rem;border:1.5px solid var(--gold);border-radius:3px;font-family:'Oswald',sans-serif;font-size:0.88rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;cursor:pointer;flex:1;min-width:120px}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:0.7rem}
+.stat-card{background:rgba(255,255,255,0.05);border:1px solid rgba(201,162,39,0.2);border-radius:6px;padding:0.8rem;text-align:center}
+.stat-num{font-family:'Oswald',sans-serif;font-size:1.5rem;font-weight:700;color:var(--gold2);line-height:1}
+.stat-label{font-size:0.6rem;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-top:0.15rem}
+.trust-bar{background:linear-gradient(90deg,#1e4a8a,#1a3a6e,#1e4a8a);padding:0.75rem 1.5rem;display:flex;gap:1.2rem;overflow-x:auto;-webkit-overflow-scrolling:touch;border-top:1px solid rgba(201,162,39,0.15);border-bottom:1px solid rgba(201,162,39,0.1)}
+.trust-bar::-webkit-scrollbar{display:none}
+.titem{display:flex;align-items:center;gap:0.4rem;font-size:0.72rem;color:var(--gray);font-family:'Oswald',sans-serif;letter-spacing:0.07em;text-transform:uppercase;white-space:nowrap;flex-shrink:0}
+.ticon{color:var(--gold2)}
+.sec{padding:3rem 1.5rem}
+.sec-label{font-family:'Oswald',sans-serif;font-size:0.68rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold2);margin-bottom:0.4rem}
+.sec-title{font-family:'Oswald',sans-serif;font-size:clamp(1.6rem,5vw,2rem);font-weight:700;color:#fff;margin-bottom:0.4rem;line-height:1.1}
+.sec-title span{color:var(--gold2)}
+.sec-desc{font-size:0.9rem;color:var(--muted);line-height:1.6;margin-bottom:2rem}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,190px),1fr));gap:1rem}
+.svc-card{background:linear-gradient(145deg,rgba(26,58,110,0.6),rgba(13,31,60,0.9));border:1px solid rgba(201,162,39,0.15);border-radius:8px;padding:1.2rem;cursor:pointer;transition:border-color 0.25s}
+.svc-card:hover{border-color:rgba(201,162,39,0.45)}
+.svc-icon{font-size:1.5rem;margin-bottom:0.6rem}
+.svc-card h3{font-family:'Oswald',sans-serif;font-size:0.9rem;font-weight:600;color:#fff;letter-spacing:0.04em;margin-bottom:0.3rem}
+.svc-card p{font-size:0.77rem;color:var(--muted);line-height:1.5}
+.est-sec{background:linear-gradient(160deg,#0a1628,#0d2040,#0a1628);padding:3rem 1.5rem;border-top:1px solid rgba(201,162,39,0.18);border-bottom:1px solid rgba(201,162,39,0.18)}
+.est-header{text-align:center;margin-bottom:2rem}
+.est-badge{display:inline-block;background:linear-gradient(90deg,var(--red),var(--red2));color:#fff;font-family:'Oswald',sans-serif;font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;padding:0.28rem 0.9rem;border-radius:2px;margin-bottom:0.6rem}
+.est-form{display:grid;grid-template-columns:1fr 1fr;gap:1rem;max-width:800px;margin:0 auto}
+.fg{display:flex;flex-direction:column;gap:0.35rem}
+.fg.full{grid-column:1/-1}
+.flabel{font-family:'Oswald',sans-serif;font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold2)}
+.finput{background:rgba(255,255,255,0.06);border:1px solid rgba(201,162,39,0.22);border-radius:4px;padding:0.7rem 0.85rem;color:#fff;font-family:'Source Sans 3',sans-serif;font-size:16px;outline:none;width:100%;-webkit-appearance:none;appearance:none;transition:border-color 0.2s}
+.finput:focus{border-color:var(--gold)}
+.finput option{background:#0d1f3c;color:#fff}
+.est-result{display:none;grid-column:1/-1;background:linear-gradient(135deg,rgba(26,58,110,0.7),rgba(13,31,60,0.95));border:1px solid var(--gold);border-radius:8px;padding:1.4rem;margin-top:0.5rem}
+.est-result.show{display:block}
+.result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.7rem;margin-bottom:1rem}
+.ritem{text-align:center}
+.r-label{font-size:0.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;font-family:'Oswald',sans-serif}
+.r-val{font-family:'Oswald',sans-serif;font-size:1.2rem;font-weight:700;color:var(--gold2);line-height:1.1;margin-top:0.15rem}
+.result-note{font-size:0.78rem;color:var(--muted);line-height:1.5;border-top:1px solid rgba(201,162,39,0.18);padding-top:0.8rem}
+.submit-row{grid-column:1/-1;display:flex;flex-direction:column;gap:0.7rem;margin-top:0.8rem}
+.btn-est{background:linear-gradient(135deg,var(--red),var(--red2));color:#fff;padding:1rem;border:none;border-radius:3px;font-family:'Oswald',sans-serif;font-size:0.95rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;cursor:pointer;width:100%}
+.btn-rst{background:transparent;color:var(--muted);padding:0.8rem;border:1px solid rgba(255,255,255,0.12);border-radius:3px;font-family:'Oswald',sans-serif;font-size:0.82rem;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;width:100%}
+.guarantee{background:linear-gradient(135deg,var(--red) 0%,#8b1e13 60%,var(--navy) 100%);padding:2.5rem 1.5rem;text-align:center}
+.guarantee h2{font-family:'Oswald',sans-serif;font-size:clamp(1.5rem,5vw,2rem);font-weight:700;color:#fff;margin-bottom:0.6rem}
+.guarantee p{max-width:520px;margin:0 auto 1rem;font-size:0.9rem;color:rgba(255,255,255,0.85);line-height:1.6}
+.tagline{font-family:'Oswald',sans-serif;font-size:0.95rem;font-weight:600;color:var(--gold2);letter-spacing:0.1em;text-transform:uppercase}
+.contact-sec{background:linear-gradient(180deg,var(--navy2),var(--navy));padding:3rem 1.5rem}
+.contact-box{margin-top:1.5rem;padding:1.2rem;background:rgba(201,162,39,0.07);border:1px solid rgba(201,162,39,0.18);border-radius:6px}
+.contact-box p{font-size:0.9rem;color:var(--gray);line-height:1.8}
+.contact-box strong{color:var(--gold2)}
+.call-btn{display:block;margin-top:1rem;background:linear-gradient(135deg,var(--red),var(--red2));color:#fff;padding:0.9rem;border-radius:4px;font-family:'Oswald',sans-serif;font-size:0.95rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;text-align:center;text-decoration:none}
+footer{background:linear-gradient(180deg,#060d1a,#020710);padding:1.5rem;border-top:2px solid var(--gold)}
+.footer-inner{display:flex;flex-direction:column;gap:1rem;text-align:center}
+.footer-logo{font-family:'Oswald',sans-serif;font-size:1rem;font-weight:700;color:var(--gold2)}
+.footer-logo span{display:block;font-size:0.6rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase}
+.footer-mid{font-size:0.75rem;color:var(--muted);line-height:1.7}
+.footer-mid a{color:var(--gold2);text-decoration:none}
+.footer-copy{font-size:0.65rem;color:var(--muted)}
+.footer-copy span{color:rgba(255,255,255,0.2);font-size:0.6rem;display:block}
+@media(min-width:768px){
+  nav{padding:0 2rem}.hbtn{display:none!important}.drawer{display:none!important}
+  .nav-links{display:flex!important}.desk-cta{display:block!important}
+  .hero{padding:4rem 2rem 3.5rem}.sec{padding:3.5rem 2rem}
+  .est-sec{padding:3.5rem 2rem}.guarantee{padding:3rem 2rem}.contact-sec{padding:3rem 2rem}
+  .est-form{grid-template-columns:1fr 1fr}.submit-row{flex-direction:row;justify-content:center}
+  .btn-est,.btn-rst{width:auto;padding:0.9rem 2rem}
+  .footer-inner{flex-direction:row;justify-content:space-between;align-items:center;text-align:left}
+  .trust-bar{justify-content:center}
+}
+@media(max-width:767px){
+  .nav-links,.desk-cta{display:none}.hbtn{display:flex!important;flex-direction:column;justify-content:center}
+  .est-form{grid-template-columns:1fr}.fg.full{grid-column:1}
+}
+</style>
+</head>
+<body>
+<div class="proto-banner">⚙ Website Preview — Powered by StarShield Web Services</div>
+<div class="nav-wrap">
+  <nav>
+    <div class="logo">Premier Plumbing Co. <span>Licensed & Insured · Your City</span></div>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li><li><a href="#services">Services</a></li>
+      <li><a href="#">About</a></li><li><a href="#contact">Contact</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:0.5rem">
+      <button class="desk-cta" onclick="goTo('estimate')">Free Estimate</button>
+      <button class="hbtn" id="hbtn" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-inner">
+      <a href="#" onclick="closeDrawer()">Home</a><a href="#services" onclick="closeDrawer()">Services</a>
+      <a href="#" onclick="closeDrawer()">About</a><a href="#contact" onclick="closeDrawer()">Contact</a>
+      <div class="drawer-phone">📞 (555) 000-0000</div>
+      <button class="drawer-cta" onclick="closeDrawer();goTo('estimate')">Get Free Estimate</button>
+    </div>
+  </div>
+</div>
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">Your City's Most Trusted Plumber</div>
+    <h1>Your Full-Service<br><span>Local Plumber</span></h1>
+    <p class="hero-sub">Licensed, dependable, and ready to handle most problems on the spot. You know the cost before we start — no surprises, ever.</p>
+    <div class="hero-phone">📞 (555) 000-0000</div>
+    <div class="hero-license">Licensed Master Plumber · Serving Your Area Since [Year]</div>
+    <div class="hero-btns">
+      <button class="btn-p" onclick="goTo('estimate')">Free Estimate</button>
+      <button class="btn-o" onclick="goTo('contact')">Schedule Service</button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-card"><div class="stat-num">20+</div><div class="stat-label">Years Experience</div></div>
+      <div class="stat-card"><div class="stat-num">100%</div><div class="stat-label">Satisfaction</div></div>
+      <div class="stat-card"><div class="stat-num">24/7</div><div class="stat-label">Emergency</div></div>
+    </div>
+  </div>
+</section>
+<div class="trust-bar">
+  <div class="titem"><span class="ticon">✔</span> Licensed & Insured</div>
+  <div class="titem"><span class="ticon">✔</span> Upfront Pricing</div>
+  <div class="titem"><span class="ticon">✔</span> Same-Day Service</div>
+  <div class="titem"><span class="ticon">✔</span> Free Estimates</div>
+  <div class="titem"><span class="ticon">✔</span> 24/7 Emergency</div>
+</div>
+<section class="sec" id="services" style="background:linear-gradient(180deg,var(--navy),#0a1420)">
+  <div class="sec-label">What We Do</div>
+  <div class="sec-title">Expert <span>Plumbing Services</span></div>
+  <p class="sec-desc">From small repairs to full installations — residential and commercial — we handle it all with speed and quality.</p>
+  <div class="svc-grid">
+    <div class="svc-card"><div class="svc-icon">🔧</div><h3>Leak Repairs</h3><p>Water, gas, or sewer leaks found and fixed fast.</p></div>
+    <div class="svc-card"><div class="svc-icon">🚿</div><h3>Fixture Install</h3><p>Toilets, sinks, faucets, and shower systems installed right.</p></div>
+    <div class="svc-card"><div class="svc-icon">♨️</div><h3>Water Heaters</h3><p>All brands installed, serviced, and replaced.</p></div>
+    <div class="svc-card"><div class="svc-icon">🏗️</div><h3>Pipe Work</h3><p>Water and gas piping, slab leak repair, line location.</p></div>
+    <div class="svc-card"><div class="svc-icon">📹</div><h3>Video Inspection</h3><p>Camera inspection for accurate, no-guesswork diagnosis.</p></div>
+    <div class="svc-card"><div class="svc-icon">💧</div><h3>Drain Cleaning</h3><p>Clogged drains cleared fast — kitchen, bath, and sewer.</p></div>
+    <div class="svc-card"><div class="svc-icon">🏢</div><h3>Commercial</h3><p>Full commercial plumbing services and code compliance.</p></div>
+    <div class="svc-card"><div class="svc-icon">🚨</div><h3>Emergency Service</h3><p>24/7 emergency plumbing — we answer when others don't.</p></div>
+  </div>
+</section>
+<section class="est-sec" id="estimate">
+  <div class="est-header">
+    <div class="est-badge">100% Free · No Obligation</div>
+    <div class="sec-title" style="text-align:center">Get Your <span>Free Estimate</span></div>
+    <p style="color:var(--muted);font-size:0.88rem;margin-top:0.4rem;text-align:center;line-height:1.6">Select your service and get an instant ballpark. We confirm exact pricing before any work begins.</p>
+  </div>
+  <div class="est-form">
+    <div class="fg"><label class="flabel">Your Name</label><input class="finput" type="text" placeholder="Full Name" id="fname" autocomplete="name"></div>
+    <div class="fg"><label class="flabel">Phone Number</label><input class="finput" type="tel" placeholder="(555) 000-0000" id="phone" autocomplete="tel"></div>
+    <div class="fg">
+      <label class="flabel">Service Needed</label>
+      <select class="finput" id="svc" onchange="updateEst()">
+        <option value="">— Select service —</option>
+        <option value="leak">Leak Repair</option>
+        <option value="fixture">Fixture Install / Repair</option>
+        <option value="waterheater">Water Heater</option>
+        <option value="drain">Drain Cleaning</option>
+        <option value="video">Video Inspection</option>
+        <option value="pipe">Pipe Work / Slab Leak</option>
+        <option value="emergency">Emergency Service</option>
+      </select>
+    </div>
+    <div class="fg">
+      <label class="flabel">Urgency</label>
+      <select class="finput" id="urg" onchange="updateEst()">
+        <option value="flexible">Flexible</option>
+        <option value="soon">Within 48 hrs</option>
+        <option value="urgent">Same Day</option>
+        <option value="emergency">Emergency Now</option>
+      </select>
+    </div>
+    <div class="est-result" id="estResult">
+      <div style="font-family:'Oswald',sans-serif;font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold2);margin-bottom:0.8rem">Your Estimate Snapshot</div>
+      <div class="result-grid">
+        <div class="ritem"><div class="r-label">Est. Range</div><div class="r-val" id="resRange">—</div></div>
+        <div class="ritem"><div class="r-label">Time on Site</div><div class="r-val" id="resTime">—</div></div>
+        <div class="ritem"><div class="r-label">Response</div><div class="r-val" id="resResp">—</div></div>
+      </div>
+      <div class="result-note" id="resNote"></div>
+    </div>
+    <div class="submit-row">
+      <button class="btn-est" onclick="submitEst()">Send My Free Estimate</button>
+      <button class="btn-rst" onclick="resetEst()">Reset</button>
+    </div>
+  </div>
+</section>
+<section class="guarantee">
+  <h2>Our Guarantee</h2>
+  <p>Not satisfied with our work? We come back and make it right — for free. No runaround, no excuses.</p>
+  <div class="tagline">Quality Work · Fair Prices · Every Time</div>
+</section>
+<section class="sec contact-sec" id="contact">
+  <div class="sec-label">Get In Touch</div>
+  <div class="sec-title">Ready to <span>Get Started?</span></div>
+  <div class="contact-box">
+    <p>📞 <strong>(555) 000-0000</strong><br>📍 Your Address · Your City, State<br>✉️ email@yourcompany.com</p>
+    <a href="tel:5550000000" class="call-btn">📞 Tap to Call Now</a>
+  </div>
+</section>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Premier Plumbing Co.<span>Licensed & Insured</span></div>
+    <div class="footer-mid"><a href="tel:5550000000">(555) 000-0000</a> · Your City, State</div>
+    <div class="footer-copy">© 2025 Premier Plumbing Co.<span>Preview by StarShield Web Services</span></div>
+  </div>
+</footer>
+<script>
+var hbtn=document.getElementById('hbtn'),drawer=document.getElementById('drawer');
+hbtn.addEventListener('click',function(){var o=drawer.classList.toggle('is-open');hbtn.classList.toggle('is-open',o);hbtn.setAttribute('aria-expanded',String(o));drawer.setAttribute('aria-hidden',String(!o))});
+function closeDrawer(){drawer.classList.remove('is-open');hbtn.classList.remove('is-open');hbtn.setAttribute('aria-expanded','false');drawer.setAttribute('aria-hidden','true')}
+function goTo(id){var el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth'})}
+var ed={leak:{r:'$150–$450',t:'1–2 hrs',n:'Includes detection and basic repair.'},fixture:{r:'$90–$280',t:'1–1.5 hrs',n:'Standard install. Supply lines included.'},waterheater:{r:'$350–$950',t:'2–3 hrs',n:'Install and connections. Permits may apply.'},drain:{r:'$85–$200',t:'45–90 min',n:'Kitchen, bath, or utility drain clearing.'},video:{r:'$150–$300',t:'1 hr',n:'Full camera inspection with footage report.'},pipe:{r:'$200–$2,500',t:'2–8 hrs',n:'Varies by pipe type, access, and length.'},emergency:{r:'$200–$600+',t:'Rapid',n:'After-hours fee applies. Price confirmed on arrival.'}};
+var rt={flexible:'1–3 Days',soon:'24–48 hrs',urgent:'Same Day',emergency:'1–2 Hours'};
+function updateEst(){var s=document.getElementById('svc').value,u=document.getElementById('urg').value,r=document.getElementById('estResult');if(!s){r.classList.remove('show');return}var d=ed[s];r.classList.add('show');document.getElementById('resRange').textContent=d.r;document.getElementById('resTime').textContent=d.t;document.getElementById('resResp').textContent=rt[u];document.getElementById('resNote').textContent=d.n+' Exact pricing confirmed before work begins.'}
+function submitEst(){var n=document.getElementById('fname').value,p=document.getElementById('phone').value,s=document.getElementById('svc').value;if(!n||!p||!s){alert('Please fill in your name, phone, and select a service.');return}alert('✅ Request received!\n\nThank you, '+n+'! We will call you at '+p+' shortly.')}
+function resetEst(){document.getElementById('fname').value='';document.getElementById('phone').value='';document.getElementById('svc').value='';document.getElementById('urg').value='flexible';document.getElementById('estResult').classList.remove('show')}
+</script>
+</body>
+</html>
